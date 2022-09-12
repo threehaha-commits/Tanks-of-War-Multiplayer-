@@ -1,26 +1,24 @@
 ﻿using Photon.Pun;
 using UnityEngine;
 
-public class TankEnterTriggerBullet : MonoBehaviour
+public class EnterTriggerItem : MonoBehaviour
 {
     private PhotonView View;
     public BulletVisual Image { private get; set; }
-    private Attack Attack;
+    private Fire Fire;
     
     private void Start()
     {
         View = gameObject.GetPhotonView();
-        Attack = GetComponent<Attack>();
+        Fire = GetComponent<Fire>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Bullet Item"))
             return;
-        
-        Debug.Log(Time.time);
 
-        Attack.BulletIdentify = collision.GetComponent<IBulletIdentify>();
+        Fire.BulletIdentify = collision.GetComponent<IBulletIdentify>();
         Image?.SetImage(collision.GetComponent<SpriteRenderer>().sprite);
         collision.gameObject.SetActive(false);
     }

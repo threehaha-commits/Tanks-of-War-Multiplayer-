@@ -16,7 +16,7 @@ public class BulletContact : MonoBehaviourPun
     [PunRPC]
     private void DeactiveBullet()
     {
-        Target?.gameObject.GetComponent<Health>()?.ApplyDamage(Damage);
+        Target?.gameObject.GetComponent<DamageHandler>()?.ApplyDamage(Damage);
         gameObject.SetActive(false);
     }
 }

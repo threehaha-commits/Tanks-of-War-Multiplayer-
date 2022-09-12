@@ -11,10 +11,16 @@ public class RoundEventViewer : MonoBehaviour
     
     public void StartGame()
     {
-        BeginRound();
+        gameObject.GetPhotonView().RPC("StartRoundForPlayers", RpcTarget.AllViaServer);
         ViewFromRoundText.RPC("RoundHasStarted", RpcTarget.AllViaServer);
     }
 
+    [PunRPC]
+    private void StartRoundForPlayers()
+    {
+        BeginRound();
+    }
+    
     public void AddListener(UnityAction action, int Group = 0)
     {
         if (Group == 0)

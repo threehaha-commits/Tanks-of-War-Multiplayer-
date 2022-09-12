@@ -10,6 +10,7 @@ public class GameInitializer : MonoBehaviour
     [SerializeField] private RoundEventViewer _roundManager;
     [SerializeField] private Image BulletImage;
     [SerializeField] private BulletItem StartBulletItem;
+    [SerializeField] private ItemSpawnController _itemSpawnController;
     private IBulletIdentify BulletIdentify => StartBulletItem.GetComponent<IBulletIdentify>();
     private PlayerFabric _PlayerFabric;
     
@@ -30,8 +31,9 @@ public class GameInitializer : MonoBehaviour
 
     private void SetPlayerProperty(PhotonView playerPView)
     {
-        playerPView.GetComponent<TankEnterTriggerBullet>().Image = new BulletVisual(BulletImage);
+        playerPView.GetComponent<EnterTriggerItem>().Image = new BulletVisual(BulletImage);
         playerPView.GetComponent<PlayerPosition>()._roundManager = _roundManager;
-        playerPView.GetComponent<Attack>().BulletIdentify = BulletIdentify;
+        playerPView.GetComponent<Fire>().BulletIdentify = BulletIdentify;
+        _itemSpawnController.GameStart();
     }
 }

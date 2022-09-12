@@ -63,6 +63,13 @@ MonoBehaviour:
   - RoundHasStarted
   - MinusHealth
   - DeactiveBullet
+  - StartRoundForPlayers
+  - CreateItem
+  - SpawnBullet
+  - qwer
+  - Do
+  - Shot
+  - DeathCharapter
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
