@@ -6,12 +6,10 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private RoundEventViewer Viewer;
     [SerializeField] private int TimeForStartRound = 5;
-    private PhotonView View;
     [SerializeField] private PhotonView ViewFromRoundText;
     
     private void Start()
     {
-        View = gameObject.GetPhotonView();
         Viewer.AddListener(EndRound, 1);
     }
 

@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using Photon.Pun;
-using Unity.VisualScripting;
-using UnityEngine;
-using Zenject;
+﻿using UnityEngine;
 
 public class Pool<T>
 {
@@ -13,24 +9,31 @@ public class Pool<T>
         Items = items;
     }
 
-    public T Get(Vector3 spawnPosition, Quaternion spawnRotation)
+    public T Get(T returnedObject)
     {
-        var item = GetInactiveObjectFromPool() as GameObject;
-        item.transform.position = spawnPosition;
-        item.transform.rotation = spawnRotation;
-        item.SetActive(true);
-        return GetInactiveObjectFromPool();
+        return GetInactiveObjectFromPool(returnedObject);
     }
 
-    private T GetInactiveObjectFromPool()
+    private T GetInactiveObjectFromPool(T returnedObject)
     {
+        var objectGameObject = returnedObject as GameObject;
+        var objectName = objectGameObject.name;
+        
         foreach (var item in Items)
         {
-            var i = item as GameObject;
-            if (i.activeInHierarchy == false)
+            var itemGameObject = item as GameObject;
+            var itemName = itemGameObject.name;
+            if(itemName != objectName)
+                continue;
+            
+            var iterationItem = item as GameObject;
+            if (iterationItem.activeInHierarchy == false)
+            {
+                iterationItem.SetActive(true);
                 return item;
+            }
         }
 
-        return Items[5];
+        return Items[0];
     }
 }

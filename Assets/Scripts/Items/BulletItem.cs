@@ -2,16 +2,12 @@
 
 public interface IBulletIdentify
 {
-    GameObject Bullet { get; set; }
+    GameObject Bullet { get;}
 }
 
-public class BulletItem : Item, IBulletIdentify
+public class BulletItem : MonoBehaviour, IBulletIdentify
 {
-    GameObject IBulletIdentify.Bullet
-    {
-        get => BulletObject.Bullet;
-        set => BulletObject.Bullet = value;
-    }
+    GameObject IBulletIdentify.Bullet => BulletObject.Bullet;
 
     [SerializeField] private BulletScriptableObject BulletObject;
 }

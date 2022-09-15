@@ -19,6 +19,7 @@ public class PoolCreator<T> where T : Object
             for (int j = 0; j < PoolItemCount; j++)
             {
                 var item = PhotonNetwork.Instantiate(poolObject[i].name, Vector3.zero, Quaternion.identity);
+                item.name = poolObject[i].name;
                 item.SetActive(false);
                 Items.Add(item as T);
             }

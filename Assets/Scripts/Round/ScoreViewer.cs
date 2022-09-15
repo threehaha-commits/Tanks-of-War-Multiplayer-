@@ -1,5 +1,4 @@
-﻿using System;
-using Photon.Pun;
+﻿using Photon.Pun;
 using UnityEngine;
 
 public class ScoreViewer : MonoBehaviour
@@ -16,12 +15,12 @@ public class ScoreViewer : MonoBehaviour
 
     public void ChangeLeftScore()
     {
-        ScoreRight++;
+        ScoreLeft++;
     }
 
     public void ChangeRightScore()
     {
-        ScoreLeft++;
+        ScoreRight++;
     }
 
     private void ChangeTextToScreen()

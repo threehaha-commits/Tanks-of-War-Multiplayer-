@@ -1,23 +1,27 @@
 ﻿using Photon.Pun;
 using UnityEngine;
 
-public class PlayerGroup : MonoBehaviour
+public class PlayerGroup : MonoBehaviour, IPunObservable
 {
     public int Group { get; private set; }
     private int index;
     private int Index => index.PlayerIndex();
-    private PhotonView View;
 
     private void Start()
     {
-        View = gameObject.GetPhotonView();
-        View.RPC("SetPlayerGroup", RpcTarget.AllBuffered, Index);
+        Group = Index;
     }
     
-    [PunRPC]
-    private void SetPlayerGroup(int index)
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        Group = index;
-        gameObject.name = gameObject.name + " " + Group;
+
+        if (stream.IsWriting)
+        {
+            stream.SendNext(Group);
+        }
+        else
+        {
+            Group = (int)stream.ReceiveNext();
+        }
     }
 }

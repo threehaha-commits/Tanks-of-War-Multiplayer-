@@ -1,5 +1,4 @@
-﻿using System.Net.NetworkInformation;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class Vector2Extension
 {
@@ -17,8 +16,8 @@ public static class Vector2Extension
     {
         Vector2 min = new Vector3().MinScreenBorder();
         Vector2 max = new Vector3().MaxScreenBorder();
-        float x = Random.Range(min.x, max.x);
-        float y = Random.Range(min.y, max.y);
+        var x = Random.Range(min.x, max.x);
+        var y = Random.Range(min.y, max.y);
         return new Vector2(x, y);
     }
 }

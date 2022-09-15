@@ -1,7 +1,7 @@
 using Photon.Pun;
 using UnityEngine;
 
-public class PlayerPosition : MonoBehaviour, IPunObservable
+public class PlayerPosition : MonoBehaviour
 {
     private Vector2 startPosition = Vector2.zero;
     private Vector2 StartPosition
@@ -37,18 +37,5 @@ public class PlayerPosition : MonoBehaviour, IPunObservable
     private void ReturnPlayerToStartPosition()
     {
         transform.position = position;
-    }
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        
-        if (stream.IsWriting)
-        {
-            stream.SendNext(transform.position);
-        }
-        else
-        {
-            transform.position = (Vector3)stream.ReceiveNext();
-        }
     }
 }

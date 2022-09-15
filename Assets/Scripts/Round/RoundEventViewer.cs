@@ -21,6 +21,10 @@ public class RoundEventViewer : MonoBehaviour
         BeginRound();
     }
     
+    /// <summary>
+    /// Add your action to round action manager
+    /// </summary>
+    /// <param name="Group">0 - RoundStart, 1 - RoundEnd</param>
     public void AddListener(UnityAction action, int Group = 0)
     {
         if (Group == 0)

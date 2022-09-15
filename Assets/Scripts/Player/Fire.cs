@@ -6,7 +6,7 @@ public class Fire : MonoBehaviour
 {
     private Pool<GameObject> BulletPool;
     private PhotonView View;
-    public IBulletIdentify BulletIdentify { private get; set; }
+    public IBulletIdentify BulletIdentify { get; set; }
     private Transform BulletSpawnPosition;
 
     private void Start()
@@ -25,6 +25,9 @@ public class Fire : MonoBehaviour
     {
         var player = GameObject.Find(name);
         var pool = player.GetComponent<Fire>().BulletPool;
-        pool.Get(position, rotation);
+        var bulletObjectFromIdentify = player.GetComponent<Fire>().BulletIdentify.Bullet;
+        var bulletTransform = pool.Get(bulletObjectFromIdentify).transform;
+        bulletTransform.position = position;
+        bulletTransform.rotation = rotation;
     }
 }

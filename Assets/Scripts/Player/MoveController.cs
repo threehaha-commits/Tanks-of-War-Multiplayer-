@@ -1,7 +1,6 @@
 using Photon.Pun;
 using UnityEngine;
 
-[RequireComponent(typeof(ClickHandler))]
 public class MoveController : MonoBehaviour
 {
     private RaycastHelper RayHelper;
@@ -15,15 +14,15 @@ public class MoveController : MonoBehaviour
         View = GetComponent<PhotonView>();
         RayHelper = new RaycastHelper(transform);
         RotateHelper = new RotationHelper(transform);
+
+        if (!View.IsMine)
+            enabled = false;
     }
 
     private void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            if (!View.IsMine) 
-                return;
-            
             RaycastHit2D hit = RayHelper.GetMouseHit();
 
             if (!hit.collider.CompareTag("Player"))

@@ -14,14 +14,14 @@ public class RaycastHelper
 
     public RaycastHit2D GetHitFromForward()
     {
-        int layer = 1 << 6;
+        var layer = 1 << 6;
         layer = ~layer;
         return Physics2D.Raycast(transform.position, transform.forward * RayDistance, Mathf.Infinity, layer);
     }
 
     public RaycastHit2D GetMouseHit() 
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         return Physics2D.Raycast(new Vector2(ray.origin.x, ray.origin.y), -Vector2.up);
     }
 }

@@ -25,10 +25,8 @@ GameObject:
   - component: {fileID: 4704761982427975555}
   - component: {fileID: 8882206730631805718}
   - component: {fileID: 9111907663891311433}
-  - component: {fileID: 2935996679436444582}
   - component: {fileID: 7439627749589268223}
-  - component: {fileID: -6780300014604211129}
-  - component: {fileID: 6762946040351268034}
+  - component: {fileID: -4004152839643575790}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -291,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa428e92b522488db10934d99dfdee7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 80
+  Speed: 110
   RotateSpeed: 4
 --- !u!114 &8882206730631805718
 MonoBehaviour:
@@ -317,18 +315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618106f544b948fe83b6f0bef9724ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2935996679436444582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5020309499765528460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c64d1343494b87745bd15fb771018e57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7439627749589268223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,29 +334,12 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 1
   ObservedComponents:
-  - {fileID: 320566124953382434}
-  - {fileID: -6780300014604211129}
-  - {fileID: 6762946040351268034}
+  - {fileID: 4952250643146783125}
+  - {fileID: -4004152839643575790}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-6780300014604211129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5020309499765528460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 1
-  m_TeleportIfDistanceGreaterThan: 1
---- !u!114 &6762946040351268034
+--- !u!114 &-4004152839643575790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 0
+  m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
